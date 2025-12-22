@@ -1,0 +1,6 @@
+git status
+git add .
+git commit -m "Change a structure in project with number document, but not repair yet"
+//If Change something in readme just open readme in MyEclipse and edit file.
+git commit -m "Update README with architecture flow"
+git push
