@@ -1,3 +1,41 @@
+# lista schowków
+git stash list
+
+# podgląd co jest w środku (bez stosowania)
+git stash show -p "stash@{0}"
+
+# dopiero gdy chcesz wgrać zmiany z powrotem do plików:
+git stash pop "stash@{0}"
+
+Po pop zobaczysz zmiany w plikach (git status / git diff). Potem dopiero Ty decyzja: commit + push, albo git stash znowu odłożyć.
+
+stash@{0} = najnowszy schowek. pop = wyjmij i usuń ze schowka; apply = wklej, ale zostaw kopię w stashu.
+
+cd /opt/payrolldsi
+git branch --show-current
+git status -sb
+
+cd C:\Users\Administrator.DSI\Projects\dsi-optima-suite
+
+git status
+git add .
+git commit -m "Raise employee sync defaults: catalog limit 150, etaty fetch 3000."
+git push origin feature/dev-prod
+
+git checkout main
+git pull origin main
+git merge feature/dev-prod
+git push origin main
+git checkout feature/dev-prod
+////////////////////////////////// VPS
+cd /opt/payrolldsi
+git pull origin main
+git log -1 --oneline
+
+cd deploy/panel
+docker compose -f docker-compose.prod.yml build --no-cache panel
+docker compose -f docker-compose.prod.yml up -d --force-recreate panel
+////////////////////////////////////////
 git status
 git add .
 git commit -m "Change a structure in project with number document, but not repair yet"
